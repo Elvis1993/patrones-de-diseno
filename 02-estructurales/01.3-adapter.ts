@@ -12,16 +12,11 @@
  * Lo que entendiste correctamente
 
         ✅ DataService define el contrato
-
         “Esto es lo que mi aplicación espera”
-
         ✅ El Adapter traduce
-
         XML → JSON
         métodos viejos → métodos modernos
-
         ✅ App no conoce XmlService
-
         App solo sabe usar getData()
  */
 
