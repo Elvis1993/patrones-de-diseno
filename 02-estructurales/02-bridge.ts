@@ -22,9 +22,22 @@ class SwordAttack implements Ability {
     }
 }
 
+class AxeAttack implements Ability {
+    use():void{
+        console.log('ATaca con una hacha brutalmente');
+    }
+}
+
+
 class MagicSpell implements Ability{
     use():void{
         console.log('Lanza un hechizo magico poderoso');
+    }
+}
+
+class FireBallSpell implements Ability{
+    use():void{
+        console.log('Lanza una bola de fuego');
     }
 }
 
@@ -59,6 +72,13 @@ class Mage extends Character{
 function main(){
     const warrior = new Warrior(new SwordAttack());
     warrior.performAbility();
+
+    warrior.setAbility(new AxeAttack());
+    warrior.performAbility();
+
+    const mage = new Mage( new MagicSpell());
+    mage.performAbility();
+
 }
 
 main();
