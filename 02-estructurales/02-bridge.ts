@@ -42,7 +42,7 @@ abstract class Character{
     abstract performAbility():void;
 }
 
-class Warrioi extends Character{
+class Warrior extends Character{
     override performAbility(): void{
         console.log('El guerrero esta listo para luchar');
         this.ability.use();
@@ -57,7 +57,8 @@ class Mage extends Character{
 }
 
 function main(){
-
+    const warrior = new Warrior(new SwordAttack());
+    warrior.performAbility();
 }
 
 main();
