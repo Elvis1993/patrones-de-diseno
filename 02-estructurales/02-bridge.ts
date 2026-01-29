@@ -12,3 +12,47 @@
 
 import { COLORS } from '../helpers/colors.ts';
 
+interface Ability {
+    use(): void;
+}
+
+class SwordAttack implements Ability {
+    use():void{
+        console.log('ATaca con una espada ferozmente');
+    }
+}
+
+class MagicSpell implements Ability{
+    use():void{
+        console.log('Lanza un hechizo magico poderoso');
+    }
+}
+
+abstract class Character{
+    protected ability: Ability;
+
+    constructor(ability: Ability){
+        this.ability = ability;
+    }
+
+    setAbility(ability: Ability):void{
+        this.ability = ability;
+    }
+
+    abstract performAbility():void;
+}
+
+class Warrioi extends Character{
+    override performAbility(): void{
+        console.log('El guerrero esta listo para luchar');
+        this.ability.use();
+    }
+}
+
+class Mage extends Character{
+    override performAbility(): void {
+        console.log("EL mago prepara su magia");
+        this.ability.use();
+    }
+}
+
