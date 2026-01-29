@@ -56,3 +56,8 @@ class Mage extends Character{
     }
 }
 
+function main(){
+
+}
+
+main();
