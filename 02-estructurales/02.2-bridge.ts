@@ -9,6 +9,7 @@
  *
  */
 
+import { measureMemory } from "node:vm";
 import { COLORS } from '../helpers/colors.ts';
 
 // 1. Interfaz NotificationChannel
@@ -43,44 +44,42 @@ class PushNotificationChannel implements NotificationChannel {
 abstract class Notification {
   protected channel: NotificationChannel;
 
-  constructor(channel: NotificationChannel) {
+  constructor(channel: NotificationChannel){
     this.channel = channel;
   }
 
-  abstract notify(message: string): void;
-  abstract setChannel(channel: NotificationChannel): void;
+  abstract notify(message: string):void;
+  abstract setChannel(channel: NotificationChannel):void;
+
 }
 
 // 4. Clases Concretas de Notificaciones
 
 class AlertNotification extends Notification {
   override notify(message: string): void {
-    console.log('\n%cNotificación de Alerta:', COLORS.red);
+    console.log("Notificacion de alert");
     this.channel.send(message);
   }
-
   override setChannel(channel: NotificationChannel): void {
     this.channel = channel;
   }
 }
 
 class ReminderNotification extends Notification {
-  notify(message: string): void {
-    console.log('\n%cNotificación de Recordatorio:', COLORS.blue);
-    this.channel.send(message);
-  }
-
-  setChannel(channel: NotificationChannel): void {
-    this.channel = channel;
-  }
+ override notify(message: string): void {
+   console.log("Notificacion de alerta");
+   this.channel.send(message);
+ }
+ override setChannel(channel: NotificationChannel): void {
+   this.channel = channel;
+ }
 }
 
 class PushNotification extends Notification {
   override notify(message: string): void {
-    console.log('\n%cNotificación de Push:', COLORS.green);
+    console.log("Notificaion de alerta");
     this.channel.send(message);
   }
-
   override setChannel(channel: NotificationChannel): void {
     this.channel = channel;
   }
